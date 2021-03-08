@@ -16,7 +16,9 @@ export default function SimpleHero() {
             </Heading>
 
             <Flex alignItems="center" py="5" justifyContent="center">
-               <Button mr="2">Solid</Button>
+               <Button mr="2" variant="solid">
+                  Pdf
+               </Button>
 
                <Button variant="outline">Outline</Button>
             </Flex>

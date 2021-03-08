@@ -1,9 +1,15 @@
 import { Heading, Box, Text, Avatar, Center, VStack, List, ListItem, Icon, HStack } from "@chakra-ui/react"
 import Et from "../../shared/EditableText"
-import { IoIosMail, IoIosPhonePortrait, IoMdGlobe, IoIosRadioButtonOff, IoIosRadioButtonOn } from "react-icons/io"
-import Rating from "react-rating"
+import { IoIosMail, IoIosPhonePortrait, IoMdGlobe } from "react-icons/io"
+import Language from "../../shared/Language"
+import { useState } from "react"
 
 export default function LeftSide() {
+   const [languages, setLanguages] = useState([
+      { lang: "english", rating: 5 },
+      { lang: "france", rating: 4 },
+   ])
+
    return (
       <>
          {/* --------------------------   NAME */}
@@ -82,16 +88,9 @@ export default function LeftSide() {
                Languages
             </Heading>
 
-            <HStack w="100%">
-               <Text fontSize=".95rem" color="whiteAlpha.700" mr="auto">
-                  <Et text="English" />
-               </Text>
-
-               <Rating
-                  emptySymbol={<Icon as={IoIosRadioButtonOff} boxSize="1.5rem" />}
-                  fullSymbol={<Icon as={IoIosRadioButtonOn} boxSize="1.5rem" />}
-               />
-            </HStack>
+            {languages.map((el) => (
+               <Language lang={el.lang} r={el.rating} />
+            ))}
          </Box>
       </>
    )
