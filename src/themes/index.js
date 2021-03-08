@@ -1,5 +1,20 @@
 import { extendTheme } from "@chakra-ui/react"
+import { Button } from "./componentStyle"
+import { purpleC, indigoC } from "./colors"
+import { fonts } from "./fonts"
 
-// const primary = purpleC
+const primary = purpleC
 
-export const theme = extendTheme({})
+export const theme = extendTheme({
+   colors: {
+      primary,
+      indigoC,
+      purpleC,
+   },
+
+   components: {
+      Button,
+   },
+
+   fonts,
+})
