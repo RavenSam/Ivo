@@ -16,14 +16,14 @@ import {
    Spacer,
 } from "@chakra-ui/react"
 
-export default function NameStep({ setActiveTab, setUserData, userData }) {
-   useEffect(() => setActiveTab(0), [])
+import { IoIosArrowForward } from "react-icons/io"
 
-   const handleChange = (e) => setUserData({ ...userData, [e.target.name]: e.target.value })
+export default function NameStep({ setActiveTab, handleChange }) {
+   useEffect(() => setActiveTab(0), [])
 
    return (
       <>
-         <Container maxW="500px" p={[0, ".5rem", "1rem"]} my="1rem">
+         <Container maxW="500px" p={[0, ".5rem"]} my="1rem">
             {/* FIRST NAME ------------------------------------------------------------------- */}
             <FormControl id="firstName" my=".8rem">
                <FormLabel htmlFor="firstName">First Name</FormLabel>
@@ -62,11 +62,11 @@ export default function NameStep({ setActiveTab, setUserData, userData }) {
             </FormControl>
 
             {/* BUTTON ------------------------------------------------------------------- */}
-            <HStack>
+            <HStack mt="1rem">
                <Spacer />
 
                <Link href={{ pathname: "/steps", query: { step: "Contact" } }}>
-                  <Button>Next</Button>
+                  <Button rightIcon={<IoIosArrowForward />}>Next</Button>
                </Link>
             </HStack>
          </Container>

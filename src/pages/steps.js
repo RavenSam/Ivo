@@ -1,4 +1,4 @@
-import { Container, Spacer, Button, Box } from "@chakra-ui/react"
+import { Container, Spacer, Button, Box, Divider } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
@@ -10,7 +10,17 @@ const ContactStep = dynamic(() => import("../components/steps/ContactStep"))
 const LanguagesStep = dynamic(() => import("../components/steps/LanguagesStep"))
 
 export default function Steps() {
-   const [userData, setUserData] = useState({ firstName: "", lastName: "", job: "", avatar: "", about: "" })
+   const [userData, setUserData] = useState({
+      firstName: "",
+      lastName: "",
+      job: "",
+      avatar: "",
+      about: "",
+      email: "",
+      phone: "",
+      site: "",
+      languages: [],
+   })
    const [activeTab, setActiveTab] = useState(1)
    const [load, setLoad] = useState(true)
 
@@ -38,6 +48,8 @@ export default function Steps() {
          break
    }
 
+   const handleChange = (e) => setUserData({ ...userData, [e.target.name]: e.target.value })
+
    if (load) return <LoadingPage />
 
    return (
@@ -47,7 +59,14 @@ export default function Steps() {
          <Container maxWidth="container.lg">
             <Stepper active={activeTab} />
 
-            <StepToRender setActiveTab={setActiveTab} setUserData={setUserData} userData={userData} />
+            <Divider my="2rem" />
+
+            <StepToRender
+               setActiveTab={setActiveTab}
+               handleChange={handleChange}
+               userData={userData}
+               setUserData={setUserData}
+            />
          </Container>
       </>
    )
