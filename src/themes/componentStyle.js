@@ -1,6 +1,7 @@
 export const Button = {
    baseStyle: {
       borderRadius: "30px",
+      lineHeight: "normal",
 
       _focus: {
          boxShadow: "none",
