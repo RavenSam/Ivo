@@ -1,7 +1,6 @@
-export const R_1 = ({ userData }) => (
+export const R_1 = ({ userData, userStyle }) => (
    <>
       <section id="capture" className="page">
-         {console.log(userData)}
          <div className="container">
             <div className="leftSide">
                <div className="name">
@@ -34,10 +33,19 @@ export const R_1 = ({ userData }) => (
             box-sizing: border-box;
          }
 
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6 {
+            font-family: "Montserrat", sans-serif;
+         }
+
          .page {
             height: 29.7cm;
             width: 21cm;
-            background: linear-gradient(to bottom, #1d1cc7, #b51a89);
+            background: linear-gradient(to bottom, ${userStyle.primaryColor}, ${userStyle.secondaryColor});
          }
 
          .container {
@@ -58,6 +66,7 @@ export const R_1 = ({ userData }) => (
          p {
             font-size: 1.1rem;
             opacity: 0.6;
+            font-family: "Open Sans", sans-serif;
          }
 
          /* LEFTSIDE
@@ -81,9 +90,13 @@ _________________________________________________________
          h1 {
             font-size: 2.5rem;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 2px;
             margin: 0.9rem 0;
+         }
+
+         .job {
+            text-transform: capitalize;
          }
 
          .about {

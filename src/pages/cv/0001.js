@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { LoadingPage } from "../../components/shared/Loading"
 
 import { R_1 } from "../../cvs/R_1"
-import DownloadAll from "../../components/shared/DownloadAll"
+import Confirmation from "../../components/shared/Confirmation"
 
 const dummyData = {
    resume: R_1,
@@ -21,7 +21,7 @@ const dummyData = {
 export default function Cv0001() {
    return (
       <>
-         <DownloadAll userData={dummyData} />
+         <Confirmation userData={dummyData} />
       </>
    )
 }
