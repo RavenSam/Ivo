@@ -8,7 +8,7 @@ export default function SimpleHero() {
 
    return (
       <Container maxWidth="container.lg">
-         <HStack height={["50vh", "60vh", "70vh", "90vh"]} w="100%">
+         <HStack height={["50vh", "60vh", "80vh", "90vh"]} w="100%">
             <Grid templateColumns={["1fr", null, "1fr 1fr"]} w="100%">
                <Box>
                   <Heading
