@@ -1,10 +1,10 @@
 import { Container, Heading, Stack, Button, Flex, HStack, Grid, Box, Text, useColorMode, Image } from "@chakra-ui/react"
 import TextLoop from "react-text-loop"
-import { primary } from "../../themes"
+
 
 export default function SimpleHero() {
    const { colorMode } = useColorMode()
-   console.log(primary)
+  
 
    return (
       <Container maxWidth="container.lg">
@@ -31,17 +31,17 @@ export default function SimpleHero() {
                   >
                      get your resume now it is{" "}
                      <TextLoop>
-                        <span>creative</span>
-                        <span>fast</span>
-                        <span>easy</span>
-                        <span>fun</span>
+                        <Text as={span} color="primary.400" >creative.</Text>
+                        <Text as={span} color="primary.400" >fast.</Text>
+                        <Text as={span} color="primary.400" >easy.</Text>
+                        <Text as={span} color="primary.400" >fun.</Text>
                      </TextLoop>
                      
                   </Heading>
                </Box>
 
                <Box d={["none", null, "block"]}>
-                  <Image src="/static/images/maker.svg" alt="Simple Hero" w="440px" h="300px"  />
+                  <Image src="/static/images/maker.svg" alt="Simple Hero" htmlWidth="440px" htmlHeight="300px"  />
                </Box>
             </Grid>
          </HStack>

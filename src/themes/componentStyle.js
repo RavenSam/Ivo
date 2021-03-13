@@ -51,7 +51,7 @@ export const Button = {
          },
 
          _active: {
-            bg: "primary.300",
+            bg: "primary.400",
             color: "white",
          },
       },
