@@ -41,7 +41,7 @@ export default function SimpleHero() {
                </Box>
 
                <Box d={["none", null, "block"]}>
-                  <Image src="/static/images/maker.svg" alt="Simple Hero" />
+                  <Image src="/static/images/maker.svg" alt="Simple Hero" w="440px" h="300px"  />
                </Box>
             </Grid>
          </HStack>
