@@ -36,7 +36,7 @@ export default function SimpleHero() {
                         <span>easy</span>
                         <span>fun</span>
                      </TextLoop>
-                     .
+                     
                   </Heading>
                </Box>
 
