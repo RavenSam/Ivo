@@ -46,12 +46,12 @@ export const Button = {
          fontSize: ".9rem",
 
          _hover: {
-            bg: "primary.400",
+            bg: "primary.300",
             color: "white",
          },
 
          _active: {
-            bg: "primary.400",
+            bg: "primary.300",
             color: "white",
          },
       },

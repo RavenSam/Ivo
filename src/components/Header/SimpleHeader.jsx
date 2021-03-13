@@ -13,7 +13,7 @@ export default function SimpleHeader() {
 
    return (
       <>
-         <Box w="100%" py="4" boxShadow="lg">
+         <Box w="100%" py={{ base: "3", md: "4" }} boxShadow="lg">
             <Container maxW="container.lg">
                <HStack>
                   <Heading>LOGO</Heading>

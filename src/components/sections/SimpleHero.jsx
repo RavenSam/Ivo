@@ -1,28 +1,50 @@
-import { Container, Heading, Stack, Button, Flex } from "@chakra-ui/react"
+import { Container, Heading, Stack, Button, Flex, HStack, Grid, Box, Text, useColorMode, Image } from "@chakra-ui/react"
+import TextLoop from "react-text-loop"
+import { primary } from "../../themes"
 
 export default function SimpleHero() {
+   const { colorMode } = useColorMode()
+   console.log(primary)
+
    return (
-      <Container maxWidth="container.md">
-         <Stack height="80vh" justifyContent="center">
-            <Heading
-               bgGradient="linear(to-l, #7928CA,#FF0080)"
-               bgClip="text"
-               fontSize={{ base: "35px", md: "50px", lg: "60px" }}
-               textAlign="center"
-               py="5"
-               letterSpacing="wider"
-            >
-               Welcome NextJs & Chakra UI
-            </Heading>
+      <Container maxWidth="container.lg">
+         <HStack height={["50vh", "60vh", "70vh", "90vh"]} w="100%">
+            <Grid templateColumns={["1fr", null, "1fr 1fr"]} w="100%">
+               <Box>
+                  <Heading
+                     bg={colorMode === "dark" ? "#eee" : "gray.700"}
+                     color={colorMode === "dark" ? "gray.700" : "white"}
+                     p=".3rem .5rem"
+                     w="fit-content"
+                     as="h2"
+                     fontSize={{ base: "14px", md: "20px" }}
+                     textTransform="capitalize"
+                  >
+                     you won't find better
+                  </Heading>
 
-            <Flex alignItems="center" py="5" justifyContent="center">
-               <Button mr="2" variant="solid">
-                  Pdf
-               </Button>
+                  <Heading
+                     maxW="490px"
+                     fontSize={{ base: "35px", sm: "48px", md: "50px", lg: "60px" }}
+                     as="h1"
+                     textTransform="uppercase"
+                  >
+                     get your resume now it is{" "}
+                     <TextLoop>
+                        <span>creative</span>
+                        <span>fast</span>
+                        <span>easy</span>
+                        <span>fun</span>
+                     </TextLoop>
+                     .
+                  </Heading>
+               </Box>
 
-               <Button variant="outline">Outline</Button>
-            </Flex>
-         </Stack>
+               <Box d={["none", null, "block"]}>
+                  <Image src="/static/images/maker.svg" alt="Simple Hero" />
+               </Box>
+            </Grid>
+         </HStack>
       </Container>
    )
 }

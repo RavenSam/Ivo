@@ -3,7 +3,7 @@ import { Button } from "./componentStyle"
 import { purpleC, indigoC } from "./colors"
 import { fonts } from "./fonts"
 
-const primary = purpleC
+export const primary = purpleC
 
 export const theme = extendTheme({
    colors: {
