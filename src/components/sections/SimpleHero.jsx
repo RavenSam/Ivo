@@ -31,10 +31,10 @@ export default function SimpleHero() {
                   >
                      get your resume now it is{" "}
                      <TextLoop>
-                        <Text as={span} color="primary.400" >creative.</Text>
-                        <Text as={span} color="primary.400" >fast.</Text>
-                        <Text as={span} color="primary.400" >easy.</Text>
-                        <Text as={span} color="primary.400" >fun.</Text>
+                        <Text as="span" color="primary.400" >creative.</Text>
+                        <Text as="span" color="primary.400" >fast.</Text>
+                        <Text as="span" color="primary.400" >easy.</Text>
+                        <Text as="span" color="primary.400" >fun.</Text>
                      </TextLoop>
                      
                   </Heading>
