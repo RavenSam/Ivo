@@ -56,7 +56,7 @@ export default function ContactStep({ setActiveTab, handleChange }) {
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
-               <Link href={{ pathname: "/steps", query: { step: "Name" } }}>
+               <Link href={{ pathname: "/resume/steps", query: { step: "Name" } }}>
                   <Button variant="outline" leftIcon={<IoIosArrowBack />}>
                      Go Back
                   </Button>
@@ -64,7 +64,7 @@ export default function ContactStep({ setActiveTab, handleChange }) {
 
                <Spacer />
 
-               <Link href={{ pathname: "/steps", query: { step: "Languages" } }}>
+               <Link href={{ pathname: "/resume/steps", query: { step: "Languages" } }}>
                   <Button rightIcon={<IoIosArrowForward />}>Next</Button>
                </Link>
             </HStack>

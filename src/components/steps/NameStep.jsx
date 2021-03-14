@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import Link from "next/link"
 import {
    Heading,
@@ -15,8 +15,8 @@ import {
    Button,
    Spacer,
 } from "@chakra-ui/react"
-
 import { IoIosArrowForward } from "react-icons/io"
+import DropHere from "../shared/DropHere"
 
 export default function NameStep({ setActiveTab, handleChange }) {
    useEffect(() => setActiveTab(0), [])
@@ -24,6 +24,13 @@ export default function NameStep({ setActiveTab, handleChange }) {
    return (
       <>
          <Container maxW="500px" p={[0, ".5rem"]} my="1rem">
+            {/* AVATAR ------------------------------------------------------------------- */}
+            <FormControl id="avatar" my=".8rem">
+               <FormLabel htmlFor="avatar">Avatar</FormLabel>
+
+               <DropHere />
+            </FormControl>
+
             {/* FIRST NAME ------------------------------------------------------------------- */}
             <FormControl id="firstName" my=".8rem">
                <FormLabel htmlFor="firstName">First Name</FormLabel>
@@ -42,13 +49,7 @@ export default function NameStep({ setActiveTab, handleChange }) {
                <Input type="text" placeholder="Web Designer" id="job" name="job" onChange={handleChange} />
             </FormControl>
 
-            {/* AVATAR ------------------------------------------------------------------- */}
-            <FormControl id="avatar" my=".8rem">
-               <FormLabel htmlFor="avatar">Avatar</FormLabel>
-               <Input type="file" id="avatar" name="avatar" onChange={handleChange} />
-            </FormControl>
-
-            {/* AVATAR ------------------------------------------------------------------- */}
+            {/* ABOUT ------------------------------------------------------------------- */}
             <FormControl id="about" my=".8rem">
                <FormLabel htmlFor="about">About</FormLabel>
                <Textarea
@@ -65,7 +66,7 @@ export default function NameStep({ setActiveTab, handleChange }) {
             <HStack mt="1rem">
                <Spacer />
 
-               <Link href={{ pathname: "/steps", query: { step: "Contact" } }}>
+               <Link href={{ pathname: "/resume/steps", query: { step: "Contact" } }}>
                   <Button rightIcon={<IoIosArrowForward />}>Next</Button>
                </Link>
             </HStack>

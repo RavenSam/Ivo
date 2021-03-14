@@ -1,27 +1,18 @@
-import { Container, Spacer, Button, Box, Divider } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { Container, Spacer, Button, Box, Divider, Progress } from "@chakra-ui/react"
+import { useEffect, useState, useContext } from "react"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
-import Stepper from "../components/shared/Stepper"
-import { LoadingPage } from "../components/shared/Loading"
+import { LoadingPage } from "../../components/shared/Loading"
+import UserDataContext from "../../context/userData"
 
-const NameStep = dynamic(() => import("../components/steps/NameStep"))
-const ContactStep = dynamic(() => import("../components/steps/ContactStep"))
-const LanguagesStep = dynamic(() => import("../components/steps/LanguagesStep"))
+const NameStep = dynamic(() => import("../../components/steps/NameStep"))
+const ContactStep = dynamic(() => import("../../components/steps/ContactStep"))
+const LanguagesStep = dynamic(() => import("../../components/steps/LanguagesStep"))
 
 export default function Steps() {
-   const [userData, setUserData] = useState({
-      firstName: "",
-      lastName: "",
-      job: "",
-      avatar: "",
-      about: "",
-      email: "",
-      phone: "",
-      site: "",
-      languages: [],
-   })
-   const [activeTab, setActiveTab] = useState(1)
+   const { userData, setUserData, handleChange } = useContext(UserDataContext)
+
+   const [activeTab, setActiveTab] = useState(0)
    const [load, setLoad] = useState(true)
 
    useEffect(() => setLoad(false), [])
@@ -48,16 +39,12 @@ export default function Steps() {
          break
    }
 
-   const handleChange = (e) => setUserData({ ...userData, [e.target.name]: e.target.value })
-
    if (load) return <LoadingPage />
 
    return (
       <>
-         <Box mb="20"></Box>
-
-         <Container maxWidth="container.lg">
-            <Stepper active={activeTab} />
+         <Container maxWidth="container.lg" pt="4rem">
+            <Progress value={activeTab} max="4" borderRadius="30px" colorScheme="primary" />
 
             <Divider my="2rem" />
 

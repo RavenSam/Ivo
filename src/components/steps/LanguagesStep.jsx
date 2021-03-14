@@ -48,7 +48,7 @@ export default function LanguagesStep({ setActiveTab, userData, setUserData }) {
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
-               <Link href={{ pathname: "/steps", query: { step: "Contact" } }}>
+               <Link href={{ pathname: "/resume/steps", query: { step: "Contact" } }}>
                   <Button variant="outline" leftIcon={<IoIosArrowBack />}>
                      Go Back
                   </Button>
@@ -56,7 +56,7 @@ export default function LanguagesStep({ setActiveTab, userData, setUserData }) {
 
                <Spacer />
 
-               {/* <Link href={{ pathname: "/steps", query: { step: "Languages" } }}>
+               {/* <Link href={{ pathname: "/resume/steps", query: { step: "Languages" } }}>
                   <Button rightIcon={<IoIosArrowForward />}>Next</Button>
                </Link> */}
             </HStack>
