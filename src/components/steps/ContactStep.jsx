@@ -18,7 +18,7 @@ import {
    InputGroup,
    Icon,
 } from "@chakra-ui/react"
-
+import ButtonsSteps from "./ButtonsSteps"
 import { IoIosMail, IoIosPhonePortrait, IoMdGlobe, IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
 export default function ContactStep({ setActiveTab, handleChange }) {
@@ -56,17 +56,13 @@ export default function ContactStep({ setActiveTab, handleChange }) {
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
-               <Link href={{ pathname: "/resume/steps", query: { step: "Name" } }}>
-                  <Button variant="outline" leftIcon={<IoIosArrowBack />}>
-                     Go Back
-                  </Button>
-               </Link>
+               <ButtonsSteps step="Name" type="back">
+                  Go Back
+               </ButtonsSteps>
 
                <Spacer />
 
-               <Link href={{ pathname: "/resume/steps", query: { step: "Languages" } }}>
-                  <Button rightIcon={<IoIosArrowForward />}>Next</Button>
-               </Link>
+               <ButtonsSteps step="Languages">Next</ButtonsSteps>
             </HStack>
          </Container>
       </>

@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState } from "react"
+import { useMemo, useCallback, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { Button, Image, useToast } from "@chakra-ui/react"
 
@@ -6,28 +6,16 @@ import { Button, Image, useToast } from "@chakra-ui/react"
 const MAX_SIZE = 5242880
 const acceptedFilesType = "image/x-png, image/png, image/jpeg, .ico, .svg"
 
-export default function DropHere() {
-   const [imgSrc, setImgSrc] = useState(null)
-
+export default function DropHere({ imgSrc, setImgSrc }) {
    const { baseStyle, activeStyle, acceptStyle, rejectStyle } = custumStyles
    const toast = useToast()
 
    const onDrop = useCallback((acceptedFiles, fileRejections) => {
       // Do something with the files
 
-      console.log({ acceptedFiles, fileRejections })
-
       const currentFile = acceptedFiles[0]
       const reader = new FileReader()
-      reader.addEventListener(
-         "load",
-         () => {
-            console.log(reader.result)
-
-            setImgSrc(reader.result)
-         },
-         false
-      )
+      reader.addEventListener("load", () => setImgSrc(reader.result), false)
 
       reader.readAsDataURL(currentFile)
 
@@ -64,24 +52,18 @@ export default function DropHere() {
 
    return (
       <>
-         {imgSrc ? (
-            <>
-               <Image src={imgSrc} h="130px" w="130px" borderRadius="full" alt="Preview Image" />
-            </>
-         ) : (
-            <div {...getRootProps({ style })}>
-               <input {...getInputProps()} />
-               <img
-                  src="\static\images\upload.svg"
-                  alt="Drop Image Here"
-                  width="50px"
-                  height="50px"
-                  style={{ opacity: ".5" }}
-               />
-               <p>Drag 'n' drop your image, or click to select it</p>
-               <em>image must be inder 5MB</em>
-            </div>
-         )}
+         <div {...getRootProps({ style })}>
+            <input {...getInputProps()} />
+            <img
+               src="\static\images\upload.svg"
+               alt="Drop Image Here"
+               width="50px"
+               height="50px"
+               style={{ opacity: ".5" }}
+            />
+            <p>Drag 'n' drop your image, or click to select it</p>
+            <em>image must be inder 5MB</em>
+         </div>
       </>
    )
 }

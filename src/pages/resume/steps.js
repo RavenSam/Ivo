@@ -4,6 +4,8 @@ import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 import { LoadingPage } from "../../components/shared/Loading"
 import UserDataContext from "../../context/userData"
+import Meta from "../../components/partials/seo-meta"
+import { Formik } from "formik"
 
 const NameStep = dynamic(() => import("../../components/steps/NameStep"))
 const ContactStep = dynamic(() => import("../../components/steps/ContactStep"))
@@ -43,6 +45,11 @@ export default function Steps() {
 
    return (
       <>
+         <Meta
+            title="Home Page | Ivo get a free modern resume in 2minutes"
+            desc="Create your own CV or resume in 2 minutes, its easy and FREE"
+         />
+
          <Container maxWidth="container.lg" pt="4rem">
             <Progress value={activeTab} max="4" borderRadius="30px" colorScheme="primary" />
 

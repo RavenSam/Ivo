@@ -5,7 +5,7 @@ export default function Home() {
    return (
       <>
          <Meta
-            title="Home Page | Ivo get a free a modern resume in 2minutes"
+            title="Home Page | Ivo get a free modern resume in 2minutes"
             desc="Create your own CV or resume in 2 minutes, its easy and FREE"
          />
 

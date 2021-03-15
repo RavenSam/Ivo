@@ -1,9 +1,17 @@
-import React from "react"
+import { useState } from "react"
+import { Button, Image, useToast } from "@chakra-ui/react"
 
-export default function CropImage() {
+export default function CropImage({ imgSrc }) {
    return (
-      <div>
-         <h1>Hello</h1>
-      </div>
+      <>
+         <Image
+            src={imgSrc}
+            alt="Preview Image"
+            htmlHeight="130px"
+            htmlWidth="130px"
+            borderRadius="full"
+            boxSize="130px"
+         />
+      </>
    )
 }

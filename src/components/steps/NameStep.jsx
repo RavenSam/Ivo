@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import Link from "next/link"
+
 import {
    Heading,
    Container,
@@ -15,8 +15,8 @@ import {
    Button,
    Spacer,
 } from "@chakra-ui/react"
-import { IoIosArrowForward } from "react-icons/io"
-import DropHere from "../shared/DropHere"
+import UploadImage from "../sections/UploadImage"
+import ButtonsSteps from "./ButtonsSteps"
 
 export default function NameStep({ setActiveTab, handleChange }) {
    useEffect(() => setActiveTab(0), [])
@@ -28,29 +28,32 @@ export default function NameStep({ setActiveTab, handleChange }) {
             <FormControl id="avatar" my=".8rem">
                <FormLabel htmlFor="avatar">Avatar</FormLabel>
 
-               <DropHere />
+               <UploadImage />
             </FormControl>
 
             {/* FIRST NAME ------------------------------------------------------------------- */}
-            <FormControl id="firstName" my=".8rem">
+            <FormControl id="firstName" my=".8rem" isInvalid={true}>
                <FormLabel htmlFor="firstName">First Name</FormLabel>
                <Input type="text" placeholder="John" id="firstName" name="firstName" onChange={handleChange} />
+               <FormErrorMessage>Error</FormErrorMessage>
             </FormControl>
 
             {/* LAST NAME ------------------------------------------------------------------- */}
-            <FormControl id="lastName" my=".8rem">
+            <FormControl id="lastName" my=".8rem" isInvalid={false}>
                <FormLabel htmlFor="lastName">Last Name</FormLabel>
                <Input type="text" placeholder="Doe" id="lastName" name="lastName" onChange={handleChange} />
+               <FormErrorMessage>Error</FormErrorMessage>
             </FormControl>
 
             {/* JOB ------------------------------------------------------------------- */}
-            <FormControl id="job" my=".8rem">
+            <FormControl id="job" my=".8rem" isInvalid={false}>
                <FormLabel htmlFor="job">Job</FormLabel>
                <Input type="text" placeholder="Web Designer" id="job" name="job" onChange={handleChange} />
+               <FormErrorMessage>Error</FormErrorMessage>
             </FormControl>
 
             {/* ABOUT ------------------------------------------------------------------- */}
-            <FormControl id="about" my=".8rem">
+            <FormControl id="about" my=".8rem" isInvalid={false}>
                <FormLabel htmlFor="about">About</FormLabel>
                <Textarea
                   size="sm"
@@ -60,15 +63,14 @@ export default function NameStep({ setActiveTab, handleChange }) {
                   placeholder="Tell us something about you"
                   onChange={handleChange}
                />
+               <FormErrorMessage>Error</FormErrorMessage>
             </FormControl>
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
                <Spacer />
 
-               <Link href={{ pathname: "/resume/steps", query: { step: "Contact" } }}>
-                  <Button rightIcon={<IoIosArrowForward />}>Next</Button>
-               </Link>
+               <ButtonsSteps step="Contact">Next</ButtonsSteps>
             </HStack>
          </Container>
       </>

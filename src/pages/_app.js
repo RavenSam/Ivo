@@ -11,7 +11,7 @@ export default function MyApp({ Component, pageProps }) {
 
    return (
       <ChakraProvider theme={theme}>
-         <NextNprogress color={theme.colors.primary[400]} height="3" startPosition={0.3} stopDelayMs={200} />
+         <NextNprogress options={{ showSpinner: false }} color={theme.colors.primary[400]} startPosition={0.3} stopDelayMs={200} />
 
          <UserDataProvider>
             <Layout>

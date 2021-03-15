@@ -21,12 +21,15 @@ import { LoadingPage } from "./Loading"
 
 import { toPng } from "html-to-image"
 
+
 // Resume
 import { R_1 } from "../../cvs/R_1"
+import R1 from "../../cvs/R_1"
 
 export default function Confirmation({ userData }) {
    const [loading, setLoading] = useState(false)
 
+   const [colors, setColors] = useState(R1.style.colors)
    const [primaryColor, setPrimaryColor] = useState("#1d1cc7")
    const [secondaryColor, setSecondaryColor] = useState("#b51a89")
 
@@ -92,8 +95,8 @@ export default function Confirmation({ userData }) {
                   borderRadius="full"
                   variant="unstyled"
                   overflow="hidden"
-                  value={primaryColor}
-                  onChange={(e) => setPrimaryColor(e.target.value)}
+                  value={colors.colorBg1}
+                  onChange={(e) => setColors({...colors,colorBg1:e.target.value})}
                />
 
                <Input
@@ -103,8 +106,8 @@ export default function Confirmation({ userData }) {
                   borderRadius="full"
                   variant="unstyled"
                   overflow="hidden"
-                  value={secondaryColor}
-                  onChange={(e) => setSecondaryColor(e.target.value)}
+                  value={colors.colorBg2}
+                  onChange={(e) => setColors({...colors,colorBg2:e.target.value})}
                />
             </HStack>
 

@@ -1,3 +1,16 @@
+
+export default {
+    resume:R_1,
+    style : {
+        colors:{
+        colorBg1:"#1d1cc7",
+        colorBg2:"#b51a89",
+        colorTextPrimary:"#b51a89",
+         }
+    }
+}
+
+
 export const R_1 = ({ userData, userStyle }) => (
    <>
       <section id="capture" className="page">

@@ -27,6 +27,7 @@ import {
 } from "@chakra-ui/react"
 import { IoIosMail, IoIosAddCircle, IoMdAddCircleOutline, IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import AddLanguageModal from "../shared/AddLanguageModal"
+import ButtonsSteps from "./ButtonsSteps"
 
 export default function LanguagesStep({ setActiveTab, userData, setUserData }) {
    const [lang, setLang] = useState({ name: "", eval: 50 })
@@ -48,11 +49,9 @@ export default function LanguagesStep({ setActiveTab, userData, setUserData }) {
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
-               <Link href={{ pathname: "/resume/steps", query: { step: "Contact" } }}>
-                  <Button variant="outline" leftIcon={<IoIosArrowBack />}>
-                     Go Back
-                  </Button>
-               </Link>
+               <ButtonsSteps step="Contact" type="back">
+                  Go Back
+               </ButtonsSteps>
 
                <Spacer />
 
