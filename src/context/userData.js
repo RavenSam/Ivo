@@ -11,7 +11,7 @@ export const UserDataProvider = (props) => {
       about: "",
       email: "",
       phone: "",
-      site: "",
+      website: "",
       languages: [],
    })
 

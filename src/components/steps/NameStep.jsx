@@ -1,16 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
-import {
-   Container,
-   FormControl,
-   FormLabel,
-   FormErrorMessage,
-   Textarea,
-   Input,
-   HStack,
-   Spacer,
-   Button,
-} from "@chakra-ui/react"
+import { Container, FormControl, FormLabel, FormErrorMessage, Textarea, Input, HStack, Spacer } from "@chakra-ui/react"
 import UploadImage from "../sections/UploadImage"
 import ButtonsSteps from "./ButtonsSteps"
 
@@ -38,7 +28,6 @@ export default function NameStep({ setActiveTab, formikProps }) {
             </FormControl>
 
             {/* FIRST NAME ------------------------------------------------------------------- */}
-
             <FormControl id="firstName" my=".8rem" isInvalid={errors.firstName && touched.firstName}>
                <FormLabel htmlFor="firstName">First Name</FormLabel>
                <Input
@@ -104,7 +93,7 @@ export default function NameStep({ setActiveTab, formikProps }) {
             <HStack mt="1rem">
                <Spacer />
 
-               <ButtonsSteps step="Contact" btnOptions={{ isDisabled: isDisabled }}>
+               <ButtonsSteps step="Contact" btnOptions={{ isDisabled }}>
                   Next
                </ButtonsSteps>
             </HStack>
