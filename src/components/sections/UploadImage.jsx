@@ -1,19 +1,21 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import DropHere from "../shared/DropHere"
 import CropImage from "../shared/CropImage"
 
-export default function UploadImage() {
-   const [imgSrc, setImgSrc] = useState(null)
+export default function UploadImage({ setAvatar, avatar }) {
+   // const [imgSrc, setImgSrc] = useState(null)
+
+   // useEffect(() => setAvatar(imgSrc), [imgSrc])
 
    return (
       <>
-         {imgSrc ? (
+         {avatar ? (
             <>
-               <CropImage imgSrc={imgSrc} />
+               <CropImage imgSrc={avatar} />
             </>
          ) : (
-            <DropHere imgSrc={imgSrc} setImgSrc={setImgSrc} />
+            <DropHere imgSrc={avatar} setImgSrc={setAvatar} />
          )}
       </>
    )

@@ -23,8 +23,8 @@ import { toPng } from "html-to-image"
 
 
 // Resume
-import { R_1 } from "../../cvs/R_1"
-import R1 from "../../cvs/R_1"
+import { R_1 } from "../../resumes/R_1"
+import R1 from "../../resumes/R_1"
 
 export default function Confirmation({ userData }) {
    const [loading, setLoading] = useState(false)
