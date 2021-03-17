@@ -76,12 +76,13 @@ const custumStyles = (() => {
       alignItems: "center",
       padding: "20px",
       borderWidth: 2,
-      borderRadius: 2,
+      borderRadius: 10,
       borderColor: "#eeeeee",
       borderStyle: "dashed",
-      backgroundColor: "#fafafa",
+      backgroundColor: "rgb(80 80 80 / 5%)",
       color: "#bdbdbd",
       outline: "none",
+      cursor: "pointer",
       transition: "border .24s ease-in-out",
    }
 

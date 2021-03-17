@@ -9,7 +9,7 @@ export const handleValidationSchema = Yup.object().shape({
    lastName: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
    job: Yup.string().min(3, "Too Short!").max(20, "Too Long!").required("Required"),
    about: Yup.string().min(20, "Too Short!").max(100, "Too Long!").required("Required"),
-   email: Yup.string().email("Invalid email").required("Required"),
+   email: Yup.string().email("Invalid email").required("Required").required("Email is required"),
    phone: Yup.string().matches(phoneRegex, "Invalid phone").required("Phone is required"),
    website: Yup.string().matches(URL, "Enter a valid url"),
 })

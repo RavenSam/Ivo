@@ -1,7 +1,8 @@
 import { extendTheme } from "@chakra-ui/react"
 import { Button } from "./componentStyle"
-import { purpleC, indigoC,minsk } from "./colors"
+import { purpleC, indigoC, minsk } from "./colors"
 import { fonts } from "./fonts"
+import shadows from "./shadows"
 
 export const primary = minsk
 
@@ -12,6 +13,8 @@ export const theme = extendTheme({
       purpleC,
       minsk,
    },
+
+   shadows,
 
    components: {
       Button,

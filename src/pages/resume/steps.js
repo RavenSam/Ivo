@@ -7,22 +7,42 @@ import Meta from "../../components/partials/seo-meta"
 import { Formik } from "formik"
 import { handleValidationSchema } from "../../utils/validationSchema"
 
+// the step that the user go through ot fill his detail info for his resume
 import NameStep from "../../components/steps/NameStep"
 import ContactStep from "../../components/steps/ContactStep"
 import LanguagesStep from "../../components/steps/LanguagesStep"
 
 export default function Steps() {
-   const { userData, setUserData } = useContext(UserDataContext)
+   // initial user data
+   // used on formik initialValues
+   const { userData } = useContext(UserDataContext)
 
+   // tabs to change hte value of progress bar
+   // setActiveTab is in avery components that rander
    const [activeTab, setActiveTab] = useState(0)
-   const [load, setLoad] = useState(true)
 
+   // useEffect and use State return loading
+   // if components is not mountet yet
+   // state to load
+   // true if loading to return loading page
+   const [load, setLoad] = useState(true)
+   // set loading page after the components is mount
    useEffect(() => setLoad(false), [])
 
+   // get the query to change the step to render
+   // the router query
+   // return the query from the url
    const { query } = useRouter()
 
+   // variable step to render
+   // set the default step to render
+   // default step is to choose the resume to use
+   // nameStep default is temporary
    let StepToRender = NameStep
 
+   // Switch statement to change the stepe to render
+   // width the default case to be the name step for now
+   // with the key is query from url
    switch (query.step) {
       case "Name":
          StepToRender = NameStep
@@ -41,6 +61,10 @@ export default function Steps() {
          break
    }
 
+   // return loading page if the components is not mounted
+   // controled by useState and useEffect
+   // load default is true
+   // after mount load is set to false by useEffect
    if (load) return <LoadingPage />
 
    return (
@@ -60,14 +84,7 @@ export default function Steps() {
                validationSchema={handleValidationSchema}
                onSubmit={(values, actions) => console.log({ values, actions })}
             >
-               {(formikProps) => (
-                  <StepToRender
-                     setActiveTab={setActiveTab}
-                     userData={userData}
-                     setUserData={setUserData}
-                     formikProps={formikProps}
-                  />
-               )}
+               {(formikProps) => <StepToRender setActiveTab={setActiveTab} formikProps={formikProps} />}
             </Formik>
          </Container>
       </>

@@ -10,6 +10,7 @@ import {
    InputLeftElement,
    InputGroup,
    Icon,
+   Text,
 } from "@chakra-ui/react"
 import ButtonsSteps from "./ButtonsSteps"
 import { IoIosMail, IoIosPhonePortrait, IoMdGlobe } from "react-icons/io"
@@ -19,7 +20,9 @@ export default function ContactStep({ setActiveTab, formikProps }) {
 
    const { values, errors, touched, handleChange, handleBlur } = formikProps
 
-   // To disable the Next Button
+   // check email, phone, website errors
+   // return true if there is at least one error
+   // Disable the next button if return true
    const { email, phone, website } = errors
    let isDisabled = !touched.email || phone || website || email ? true : false
 
@@ -39,6 +42,7 @@ export default function ContactStep({ setActiveTab, formikProps }) {
                      value={values.email}
                      onBlur={handleBlur}
                      onChange={handleChange}
+                     isRequired
                   />
                </InputGroup>
                <FormErrorMessage>{errors.email}</FormErrorMessage>
@@ -57,6 +61,7 @@ export default function ContactStep({ setActiveTab, formikProps }) {
                      value={values.phone}
                      onBlur={handleBlur}
                      onChange={handleChange}
+                     isRequired
                   />
                </InputGroup>
                <FormErrorMessage>{errors.phone}</FormErrorMessage>
@@ -64,7 +69,9 @@ export default function ContactStep({ setActiveTab, formikProps }) {
 
             {/* WEBSITE ------------------------------------------------------------------- */}
             <FormControl id="website" my=".8rem" isInvalid={errors.website && touched.website}>
-               <FormLabel htmlFor="website">Website</FormLabel>
+               <FormLabel htmlFor="website">
+                  Website <Text as="sup">(optional)</Text>
+               </FormLabel>
                <InputGroup>
                   <InputLeftElement pointerEvents="none" children={<Icon as={IoMdGlobe} boxSize="1.5rem" />} />
                   <Input
