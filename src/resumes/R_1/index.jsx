@@ -1,17 +1,4 @@
-
-export default {
-    resume:R_1,
-    style : {
-        colors:{
-        colorBg1:"#1d1cc7",
-        colorBg2:"#b51a89",
-        colorTextPrimary:"#b51a89",
-         }
-    }
-}
-
-
-export const R_1 = ({ userData, userStyle }) => (
+export const R_1 = ({ userData, colors }) => (
    <>
       <section id="capture" className="page">
          <div className="container">
@@ -58,7 +45,7 @@ export const R_1 = ({ userData, userStyle }) => (
          .page {
             height: 29.7cm;
             width: 21cm;
-            background: linear-gradient(to bottom, ${userStyle.primaryColor}, ${userStyle.secondaryColor});
+            background: linear-gradient(to bottom, ${colors.colorBg2}, ${colors.colorBg1});
          }
 
          .container {
@@ -150,3 +137,14 @@ _________________________________________________________
       `}</style>
    </>
 )
+
+export default {
+   resume: R_1,
+   style: {
+      colors: {
+         colorBg1: "#1d1cc7",
+         colorBg2: "#b51a89",
+         colorTextPrimary: "#b51a89",
+      },
+   },
+}

@@ -18,20 +18,19 @@ import { useEffect, useState } from "react"
 import jsPDF from "jspdf"
 import saveAs from "../../utils/saveAs"
 import { LoadingPage } from "./Loading"
+import { IoIosArrowDown } from "react-icons/io"
 
 import { toPng } from "html-to-image"
 
-
 // Resume
-import { R_1 } from "../../resumes/R_1"
 import R1 from "../../resumes/R_1"
 
-export default function Confirmation({ userData }) {
+export default function ViewPdf({ userData }) {
    const [loading, setLoading] = useState(false)
 
    const [colors, setColors] = useState(R1.style.colors)
-   const [primaryColor, setPrimaryColor] = useState("#1d1cc7")
-   const [secondaryColor, setSecondaryColor] = useState("#b51a89")
+
+   console.log(R1)
 
    const savePdf = async () => {
       const node = document.querySelector("#capture")
@@ -65,16 +64,14 @@ export default function Confirmation({ userData }) {
 
    if (!userData) return <LoadingPage />
 
-   const Resume = userData.resume
-
-   const userStyle = { primaryColor, secondaryColor }
+   const Resume = R1.resume
 
    return (
       <>
          <Container maxW="21cm" p="0">
-            <HStack spacing={2} my="1rem" p="0 1rem">
+            <HStack spacing={2} p=" 1rem 0">
                <Menu>
-                  <MenuButton isLoading={loading} as={Button}>
+                  <MenuButton isLoading={loading} as={Button} rightIcon={<IoIosArrowDown />}>
                      Download
                   </MenuButton>
 
@@ -96,7 +93,7 @@ export default function Confirmation({ userData }) {
                   variant="unstyled"
                   overflow="hidden"
                   value={colors.colorBg1}
-                  onChange={(e) => setColors({...colors,colorBg1:e.target.value})}
+                  onChange={(e) => setColors({ ...colors, colorBg1: e.target.value })}
                />
 
                <Input
@@ -107,11 +104,16 @@ export default function Confirmation({ userData }) {
                   variant="unstyled"
                   overflow="hidden"
                   value={colors.colorBg2}
-                  onChange={(e) => setColors({...colors,colorBg2:e.target.value})}
+                  onChange={(e) => setColors({ ...colors, colorBg2: e.target.value })}
                />
             </HStack>
 
-            <Resume userData={userData} userStyle={userStyle} />
+            {/* Not showing the preview on mobile */}
+            <Box h={["2rem", null, "fit-content"]} overflow="hidden">
+               <Box overflow={["auto", null, "hidden"]} transform={["translateY(-100%)", null, "translateY(0)"]}>
+                  <Resume userData={userData} colors={colors} />
+               </Box>
+            </Box>
          </Container>
       </>
    )

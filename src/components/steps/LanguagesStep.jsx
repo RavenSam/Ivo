@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { Heading, Container, HStack, VStack, Spacer, Icon, IconButton, Divider, Text, Flex } from "@chakra-ui/react"
+import { Heading, Container, HStack, Spacer, Divider } from "@chakra-ui/react"
 import AddLanguageModal from "../shared/AddLanguageModal"
 import ButtonsSteps from "./ButtonsSteps"
-import { RiStarSFill, RiStarSLine } from "react-icons/ri"
-import { BsTrash } from "react-icons/bs"
-import Rating from "react-rating"
+import Language from "../shared/Language"
 
 export default function LanguagesStep({ setActiveTab, formikProps }) {
    // set the tab we are in
@@ -33,6 +31,10 @@ export default function LanguagesStep({ setActiveTab, formikProps }) {
       setValues({ ...values, languages: newLanguages })
    }
 
+   // return true if the language array is empty
+   // Disable the next button if return true
+   let isDisabled = !values.languages.length ? true : false
+
    return (
       <>
          <Container maxW="lg" p={[0, ".5rem"]} my="1rem">
@@ -44,37 +46,7 @@ export default function LanguagesStep({ setActiveTab, formikProps }) {
 
             <Divider my="1.5rem" />
 
-            <VStack mb="1rem">
-               {values.languages.map((language) => (
-                  <Flex key={language.name} w="100%" p="1rem " borderRadius="lg" boxShadow="s8" align="center">
-                     <Text as="strong" w="25%">
-                        {language.name}
-                     </Text>
-
-                     <Spacer />
-
-                     <Rating
-                        readonly
-                        initialRating={language.eval / 10}
-                        step={2}
-                        stop={10}
-                        emptySymbol={<Icon as={RiStarSLine} boxSize={["1.3rem", "1.5rem"]} />}
-                        fullSymbol={<Icon as={RiStarSFill} boxSize={["1.3rem", "1.5rem"]} />}
-                     />
-
-                     <Spacer />
-
-                     <IconButton
-                        size={["sm", "md"]}
-                        onClick={() => handleDelete(language.name)}
-                        aria-label="Delete Language"
-                        variant="ghost"
-                        color="#ff006a"
-                        icon={<Icon as={BsTrash} boxSize="1.5rem" />}
-                     />
-                  </Flex>
-               ))}
-            </VStack>
+            <Language languages={values.languages} handleDelete={handleDelete} />
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
@@ -83,6 +55,10 @@ export default function LanguagesStep({ setActiveTab, formikProps }) {
                </ButtonsSteps>
 
                <Spacer />
+
+               <ButtonsSteps step="Confirm" btnOptions={{ isDisabled }}>
+                  Next
+               </ButtonsSteps>
             </HStack>
          </Container>
       </>

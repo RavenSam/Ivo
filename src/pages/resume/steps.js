@@ -7,10 +7,12 @@ import Meta from "../../components/partials/seo-meta"
 import { Formik } from "formik"
 import { handleValidationSchema } from "../../utils/validationSchema"
 
+// step components
 // the step that the user go through ot fill his detail info for his resume
 import NameStep from "../../components/steps/NameStep"
 import ContactStep from "../../components/steps/ContactStep"
 import LanguagesStep from "../../components/steps/LanguagesStep"
+import ConfirmStep from "../../components/steps/ConfirmStep"
 
 export default function Steps() {
    // initial user data
@@ -54,6 +56,10 @@ export default function Steps() {
 
       case "Languages":
          StepToRender = LanguagesStep
+         break
+
+      case "Confirm":
+         StepToRender = ConfirmStep
          break
 
       default:
