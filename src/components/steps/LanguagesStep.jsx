@@ -7,7 +7,7 @@ import Language from "../shared/Language"
 export default function LanguagesStep({ setActiveTab, formikProps }) {
    // set the tab we are in
    // to change the progress bar
-   useEffect(() => setActiveTab(2), [])
+   useEffect(() => setActiveTab(3), [])
    // state to change the input of language
    // default language input values { name: "", eval: 50 }
    const [lang, setLang] = useState({ name: "", eval: 50 })
@@ -37,7 +37,7 @@ export default function LanguagesStep({ setActiveTab, formikProps }) {
 
    return (
       <>
-         <Container maxW="lg" p={[0, ".5rem"]} my="1rem">
+         <Container maxW="500px" p={[0, ".5rem"]} my="1rem">
             <HStack>
                <Heading fontSize={["1.3rem", "1.6rem"]}>Add a Language</Heading>
                <Spacer />

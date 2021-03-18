@@ -7,6 +7,8 @@ export const UserDataProvider = (props) => {
    // for now is strored in context
    // may change after using formik
    const [userData, setUserData] = useState({
+      resume: null,
+      style: null,
       firstName: "",
       lastName: "",
       job: "",

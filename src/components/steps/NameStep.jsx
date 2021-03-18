@@ -5,7 +5,7 @@ import UploadImage from "../sections/UploadImage"
 import ButtonsSteps from "./ButtonsSteps"
 
 export default function NameStep({ setActiveTab, formikProps }) {
-   useEffect(() => setActiveTab(0), [])
+   useEffect(() => setActiveTab(1), [])
 
    const { values, errors, touched, handleChange, handleBlur } = formikProps
 
@@ -91,6 +91,10 @@ export default function NameStep({ setActiveTab, formikProps }) {
 
             {/* BUTTON ------------------------------------------------------------------- */}
             <HStack mt="1rem">
+               <ButtonsSteps step="Chose Resume" type="back">
+                  Go Back
+               </ButtonsSteps>
+
                <Spacer />
 
                <ButtonsSteps step="Contact" btnOptions={{ isDisabled }}>

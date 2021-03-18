@@ -1,3 +1,5 @@
+import { renderToString } from "react-dom/server"
+
 export const R_1 = ({ userData, colors }) => (
    <>
       <section id="capture" className="page">
@@ -139,6 +141,7 @@ _________________________________________________________
 )
 
 export default {
+   title: "r1",
    resume: R_1,
    style: {
       colors: {
@@ -147,4 +150,6 @@ export default {
          colorTextPrimary: "#b51a89",
       },
    },
+
+   thumbnail: "/static/images/thumbnails/r0001.png",
 }

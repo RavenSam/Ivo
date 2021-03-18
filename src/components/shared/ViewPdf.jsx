@@ -23,14 +23,12 @@ import { IoIosArrowDown } from "react-icons/io"
 import { toPng } from "html-to-image"
 
 // Resume
-import R1 from "../../resumes/R_1"
+// import R1 from "../../resumes/R_1"
 
 export default function ViewPdf({ userData }) {
    const [loading, setLoading] = useState(false)
 
-   const [colors, setColors] = useState(R1.style.colors)
-
-   console.log(R1)
+   const [colors, setColors] = useState(userData.style.colors)
 
    const savePdf = async () => {
       const node = document.querySelector("#capture")
@@ -64,7 +62,7 @@ export default function ViewPdf({ userData }) {
 
    if (!userData) return <LoadingPage />
 
-   const Resume = R1.resume
+   const Resume = userData.resume
 
    return (
       <>

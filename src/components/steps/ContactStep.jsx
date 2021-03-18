@@ -16,7 +16,7 @@ import ButtonsSteps from "./ButtonsSteps"
 import { IoIosMail, IoIosPhonePortrait, IoMdGlobe } from "react-icons/io"
 
 export default function ContactStep({ setActiveTab, formikProps }) {
-   useEffect(() => setActiveTab(1), [])
+   useEffect(() => setActiveTab(2), [])
 
    const { values, errors, touched, handleChange, handleBlur } = formikProps
 

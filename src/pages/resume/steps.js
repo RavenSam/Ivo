@@ -1,4 +1,4 @@
-import { Container, Spacer, Button, Box, Divider, Progress } from "@chakra-ui/react"
+import { Container, Divider, Progress } from "@chakra-ui/react"
 import { useEffect, useState, useContext } from "react"
 import { useRouter } from "next/router"
 import { LoadingPage } from "../../components/shared/Loading"
@@ -10,6 +10,7 @@ import { handleValidationSchema } from "../../utils/validationSchema"
 // step components
 // the step that the user go through ot fill his detail info for his resume
 import NameStep from "../../components/steps/NameStep"
+import ChoseResumeStep from "../../components/steps/ChoseResumeStep"
 import ContactStep from "../../components/steps/ContactStep"
 import LanguagesStep from "../../components/steps/LanguagesStep"
 import ConfirmStep from "../../components/steps/ConfirmStep"
@@ -39,13 +40,17 @@ export default function Steps() {
    // variable step to render
    // set the default step to render
    // default step is to choose the resume to use
-   // nameStep default is temporary
-   let StepToRender = NameStep
+   // Chose Resume default
+   let StepToRender = ChoseResumeStep
 
    // Switch statement to change the stepe to render
-   // width the default case to be the name step for now
+   // width the default case to be the Chose Resume step for now
    // with the key is query from url
    switch (query.step) {
+      case "Chose Resume":
+         StepToRender = ChoseResumeStep
+         break
+
       case "Name":
          StepToRender = NameStep
          break
@@ -63,7 +68,7 @@ export default function Steps() {
          break
 
       default:
-         StepToRender = NameStep
+         StepToRender = ChoseResumeStep
          break
    }
 
